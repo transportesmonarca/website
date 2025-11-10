@@ -34,7 +34,7 @@ export default function Experience() {
           {/* Image */}
           <div>
             <img
-              src="/fondos/unnamed (3).jpg"
+              src="/truck-drivers-team-warehouse-logistics.jpg"
               alt="Equipo de transportes Monarca"
               className="rounded-lg shadow-lg w-full h-auto"
             />

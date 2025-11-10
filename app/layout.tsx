@@ -12,9 +12,21 @@ export const metadata: Metadata = {
   description: "Soluciones de transporte y logística internacional confiables",
   generator: "v0.app",
   icons: {
-    icon: "/logo/logo_monarca.png",
-    apple: "/logo/logo_monarca.png",
-    shortcut: "/logo/logo_monarca.png",
+    icon: [
+      {
+        url: "/icon-light-32x32.png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icon-dark-32x32.png",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/icon.svg",
+        type: "image/svg+xml",
+      },
+    ],
+    apple: "/apple-icon.png",
   },
 }
 
