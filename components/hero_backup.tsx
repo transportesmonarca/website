@@ -96,7 +96,7 @@ export default function Hero() {
       {/* Botones de navegación */}
       <button 
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/80 hover:bg-white/90 text-primary p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 backdrop-blur-sm"
+        className="absolute left-4 top-[65%] md:top-1/2 transform -translate-y-1/2 z-30 bg-white/80 hover:bg-white/90 text-primary p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 backdrop-blur-sm"
         aria-label="Imagen anterior"
       >
         <ChevronLeft size={24} />
@@ -104,7 +104,7 @@ export default function Hero() {
 
       <button 
         onClick={goToNext}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/80 hover:bg-white/90 text-primary p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 backdrop-blur-sm"
+        className="absolute right-4 top-[65%] md:top-1/2 transform -translate-y-1/2 z-30 bg-white/80 hover:bg-white/90 text-primary p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 backdrop-blur-sm"
         aria-label="Siguiente imagen"
       >
         <ChevronRight size={24} />
@@ -170,7 +170,7 @@ export default function Hero() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg px-4 sm:px-8">
               Solicitar Cotización
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
             </Button>
