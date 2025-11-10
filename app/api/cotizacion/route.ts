@@ -84,8 +84,8 @@ export async function POST(request: Request) {
       margin-bottom: 15px;
     }
     .logo-img {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: auto;
       margin-right: 15px;
     }
     .logo-text {
@@ -197,7 +197,7 @@ export async function POST(request: Request) {
   <div class="container">
     <div class="header">
       <div class="logo-container">
-        <img src="https://raw.githubusercontent.com/transportesmonarca/website/main/code/public/logo/logo_monarca.png" alt="Logo Monarca" class="logo-img">
+        <img src="https://monarcanld.com/logo/logo_monarca.png" alt="Logo Monarca" class="logo-img" style="display:block;">
         <div class="logo-text">
           <div class="logo-line1">TRANSPORTES INTERNACIONALES</div>
           <div class="logo-line2">MONARCA</div>
@@ -214,10 +214,6 @@ export async function POST(request: Request) {
       <div class="info-box">
         <div class="info-title">Resumen de su solicitud</div>
         <div class="info-grid">
-          <div class="info-item full-width">
-            <strong>Folio</strong>
-            #${cotizacion.id}
-          </div>
           ${data.empresa ? `<div class="info-item full-width"><strong>Empresa</strong>${data.empresa}</div>` : ""}
           <div class="info-item">
             <strong>Email</strong>
@@ -241,12 +237,14 @@ export async function POST(request: Request) {
 
     <div class="footer">
       <div class="footer-text"><strong>Visita nuestra página <a href="https://monarcanld.com" style="color: white; text-decoration: underline;">monarcanld.com</a></strong></div>
-      <div class="footer-text">📧 exportaciones@tmonarca.com.mx</div>
-      <div class="footer-text">📞 +52 867 225 4260</div>
+      <div class="footer-text" style="color: white;">📧 exportaciones@tmonarca.com.mx</div>
+      <div class="footer-text" style="color: white;">📞 +52 867 225 4260</div>
       <div class="footer-links">
-        <a href="https://monarcanld.com/#privacy-modal" class="footer-link" target="_blank">Aviso de privacidad</a>
+        <a href="https://monarcanld.com/#privacy-modal" class="footer-link" target="_blank" style="color: white;">Aviso de privacidad</a>
+        <span style="color: white; opacity: 0.8;"> | </span>
+        <a href="https://monarcanld.com/#privacy-modal" class="footer-link" target="_blank" style="color: white;">Ley ARCO</a>
       </div>
-      <div class="footer-text" style="margin-top: 15px; font-size: 12px; opacity: 0.9;">
+      <div class="footer-text" style="margin-top: 15px; font-size: 12px; opacity: 0.9; color: white;">
         Copyright © Transportes Internacionales Monarca, Todos los derechos reservados
       </div>
     </div>
