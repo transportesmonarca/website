@@ -27,11 +27,11 @@ export default function Recruitment() {
                 title: "Seguridad Total",
                 description: "Programas completos de seguridad y protección para nuestros operadores"
               },
-              {
+                          {
                 icon: Users,
                 title: "Ambiente Familiar",
-                description: "Más de 20 años formando una gran familia de transportistas"
-              }
+                description: "Desde 2018 formando una gran familia de transportistas"
+            }
             ].map((benefit, index) => {
               const Icon = benefit.icon
               return (
