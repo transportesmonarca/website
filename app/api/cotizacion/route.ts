@@ -19,9 +19,9 @@ export async function POST(request: Request) {
           empresa: data.empresa || null,
           email: data.email,
           telefono: data.telefono,
-          origen: data.origen || null,
-          destino: data.destino || null,
-          tipo_mercancia: data.tipo_mercancia || null,
+          origen: data.origen || "No especificado",
+          destino: data.destino || "No especificado",
+          tipo_mercancia: data.tipo_mercancia || "General",
           peso_kg: data.peso_kg ? parseFloat(data.peso_kg) : null,
           fecha_estimada: data.fecha_estimada || null,
           tipo_carga: data.tipo_carga || "General",
@@ -59,10 +59,13 @@ export async function POST(request: Request) {
   <style>
     body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
     .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; }
-    .header { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); padding: 40px 20px; text-align: center; }
-    .logo { color: white; font-size: 24px; font-weight: bold; margin-bottom: 10px; }
-    .greeting { color: white; font-size: 32px; font-weight: bold; margin: 20px 0 10px; }
-    .subtitle { color: rgba(255,255,255,0.9); font-size: 16px; }
+    .header { background-color: #ffffff; padding: 40px 20px; text-align: center; border-bottom: 1px solid #e5e7eb; }
+    .logo-container { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px; }
+    .logo-text { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .logo-line1 { font-size: 18px; font-weight: 300; color: #1e3a8a; letter-spacing: 2px; }
+    .logo-line2 { font-size: 18px; font-weight: 300; color: #1e3a8a; letter-spacing: 2px; }
+    .logo-line3 { font-size: 22px; font-weight: 700; color: #dc2626; letter-spacing: 3px; }
+    .greeting { color: #1e3a8a; font-size: 28px; font-weight: 600; margin: 20px 0 10px; }
     .content { padding: 40px 20px; }
     .message { color: #374151; font-size: 16px; line-height: 1.6; margin-bottom: 30px; }
     .info-box { background-color: #f3f4f6; border-radius: 8px; padding: 20px; margin: 20px 0; }
@@ -77,14 +80,25 @@ export async function POST(request: Request) {
 <body>
   <div class="container">
     <div class="header">
-      <div class="logo">TRANSPORTES INTERNACIONALES MONARCA</div>
-      <div class="greeting">Hola,</div>
-      <div class="subtitle">${data.nombre_cliente || "Cliente"}</div>
+      <div class="logo-container">
+        <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="45" fill="#1e3a8a"/>
+          <path d="M30 35 L50 25 L70 35 L70 65 L50 75 L30 65 Z" fill="#dc2626"/>
+          <circle cx="50" cy="50" r="15" fill="white"/>
+          <text x="50" y="58" font-size="20" font-weight="bold" fill="#1e3a8a" text-anchor="middle">M</text>
+        </svg>
+        <div class="logo-text">
+          <div class="logo-line1">TRANSPORTES</div>
+          <div class="logo-line2">INTERNACIONALES</div>
+          <div class="logo-line3">MONARCA</div>
+        </div>
+      </div>
+      <div class="greeting">Hola estimad@ ${data.nombre_cliente || "Cliente"}</div>
     </div>
     
     <div class="content">
       <div class="message">
-        <strong>Hemos recibido con éxito su información.</strong> Uno de nuestros ejecutivos está atendiendo su solicitud, nos pondremos en contacto a la brevedad.
+        <strong>Hemos recibido con éxito su información.</strong> Uno de nuestros compañeros está atendiendo su solicitud, nos pondremos en contacto a la brevedad.
       </div>
 
       <div class="info-box">
