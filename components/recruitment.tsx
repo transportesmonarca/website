@@ -1,6 +1,6 @@
 "use client"
 
-import { Truck, Users, MapPin, Clock, Shield, Award } from "lucide-react"
+import { Users, Shield } from "lucide-react"
 
 export default function Recruitment() {
   return (
@@ -19,49 +19,41 @@ export default function Recruitment() {
 
         {/* Benefits Grid with CTA */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Benefit Cards */}
-          {[
-            {
-              icon: Truck,
-              title: "Equipo Moderno",
-              description: "Flota de tractocamiones en excelente estado con tecnología de punta"
-            },
-            {
-              icon: Shield,
-              title: "Seguridad Total",
-              description: "Programas completos de seguridad y protección para nuestros operadores"
-            },
-            {
-              icon: Award,
-              title: "Prestaciones Superiores",
-              description: "Paquete competitivo de prestaciones y beneficios adicionales"
-            },
-            {
-              icon: Users,
-              title: "Ambiente Familiar",
-              description: "Más de 20 años formando una gran familia de transportistas"
-            }
-          ].map((benefit, index) => {
-            const Icon = benefit.icon
-            return (
-              <div key={index} className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-8 h-8 text-primary" />
+          {/* Left Column - Benefit Cards */}
+          <div className="space-y-8">
+            {[
+              {
+                icon: Shield,
+                title: "Seguridad Total",
+                description: "Programas completos de seguridad y protección para nuestros operadores"
+              },
+              {
+                icon: Users,
+                title: "Ambiente Familiar",
+                description: "Más de 20 años formando una gran familia de transportistas"
+              }
+            ].map((benefit, index) => {
+              const Icon = benefit.icon
+              return (
+                <div key={index} className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-3">{benefit.title}</h3>
+                  <p className="text-foreground/60 text-sm">{benefit.description}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-3">{benefit.title}</h3>
-                <p className="text-foreground/60 text-sm">{benefit.description}</p>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
 
-          {/* CTA Card - Full width on mobile, spans 2 columns on desktop */}
-          <div className="md:col-span-2 bg-gradient-to-br from-primary to-primary/80 rounded-xl shadow-xl p-8 md:p-12 text-white">
-            <div className="text-center max-w-3xl mx-auto">
+          {/* Right Column - CTA Card */}
+          <div className="bg-gradient-to-br from-primary to-primary/80 rounded-xl shadow-xl p-8 text-white flex flex-col justify-center">
+            <div className="text-center">
               <h3 className="text-3xl font-bold mb-4">¿Listo para unirte?</h3>
               <p className="text-white/90 mb-8 text-lg">
                 Envía tu CV y documentos al correo de recursos humanos o contáctanos directamente por WhatsApp.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col gap-4">
                 <a 
                   href="mailto:rh@tmonarca.com.mx?subject=Solicitud%20de%20Empleo%20-%20Operador"
                   className="bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors text-center font-semibold"

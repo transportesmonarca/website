@@ -7,11 +7,9 @@ import QuoteModal from "./quote-modal"
 
 export default function Hero() {
   const backgroundImages = [
-    "/fondos/00BA9AB8-1A46-4F0B-9426-7207A104A5BC_1_105_c.jpeg",
-    "/fondos/02D3E0FB-CE90-47E3-8F74-7D6117502F9F_1_105_c.jpeg",
-    "/fondos/031DEA83-05C7-4A4D-9A6A-3BA427551E63_1_105_c.jpeg",
-    "/fondos/unnamed (2).jpg",
-    "/fondos/unnamed (3).jpg"
+    "/fondos/unnamed (4).jpg",
+    "/fondos/41631D0F-23FF-486D-84A9-982C3169E92C_1_105_c.jpeg",
+    "/fondos/unnamed (5).png"
   ]
 
   const heroMessages = [
@@ -29,16 +27,6 @@ export default function Hero() {
       title: "Servicios de Fletes",
       subtitle: "Transporte de carga especializado",
       description: "Fletes completos y parciales con la seguridad y puntualidad que tu negocio necesita."
-    },
-    {
-      title: "Cargas Consolidadas",
-      subtitle: "Optimización de costos y espacios",
-      description: "Aprovecha al máximo tu inversión en transporte con nuestro servicio de consolidación de carga."
-    },
-    {
-      title: "Programa IMMEX",
-      subtitle: "Facilitamos tu operación maquiladora",
-      description: "Expertise en el manejo de mercancías bajo el programa IMMEX con total cumplimiento normativo."
     }
   ]
 
@@ -55,43 +43,46 @@ export default function Hero() {
     return () => clearInterval(interval)
   }, [backgroundImages.length])
 
-  const currentMessage = heroMessages[currentImageIndex]
-
   const goToPrevious = () => {
-    setCurrentImageIndex((prevIndex) => 
+    setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? backgroundImages.length - 1 : prevIndex - 1
     )
   }
 
   const goToNext = () => {
-    setCurrentImageIndex((prevIndex) => 
+    setCurrentImageIndex((prevIndex) =>
       (prevIndex + 1) % backgroundImages.length
     )
   }
 
+  const currentMessage = heroMessages[currentImageIndex]
+
   return (
     <>
       <section className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden min-h-[600px]">
+        {/* Background image carousel */}
         <div className="absolute inset-0 z-0">
           {backgroundImages.map((image, index) => (
             <div 
               key={index}
-              className={\`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out \${
+              className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
                 index === currentImageIndex ? 'opacity-70' : 'opacity-0'
-              }\`}
+              }`}
             >
               <div
                 className="w-full h-full bg-cover bg-center bg-no-repeat"
                 style={{
-                  backgroundImage: \`url('\${image}')\`
+                  backgroundImage: `url('${image}')`
                 }}
               />
             </div>
           ))}
         </div>
         
+        {/* Overlay para legibilidad */}
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-white/50 via-white/30 to-white/50"></div>
 
+        {/* Botones de navegación */}
         <button 
           onClick={goToPrevious}
           className="absolute left-4 top-[70%] md:top-1/2 transform -translate-y-1/2 z-30 bg-white/80 hover:bg-white/90 text-primary p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 backdrop-blur-sm"
@@ -108,23 +99,25 @@ export default function Hero() {
           <ChevronRight size={24} />
         </button>
 
+        {/* Indicadores de posición */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex space-x-2">
           {backgroundImages.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentImageIndex(index)}
-              className={\`w-3 h-3 rounded-full transition-all duration-300 \${
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentImageIndex 
                   ? 'bg-primary scale-125' 
                   : 'bg-white/60 hover:bg-white/80'
-              }\`}
-              aria-label={\`Ir a imagen \${index + 1}\`}
+              }`}
+              aria-label={`Ir a imagen ${index + 1}`}
             />
           ))}
         </div>
 
         <div className="relative z-20 max-w-7xl mx-auto">
           <div className="max-w-3xl">
+            {/* Título principal */}
             <div className="mb-6">
               <h1 
                 key={currentImageIndex}
@@ -137,9 +130,10 @@ export default function Hero() {
               </h1>
             </div>
 
+            {/* Subtítulo */}
             <div className="mb-4">
               <h2 
-                key={\`subtitle-\${currentImageIndex}\`}
+                key={`subtitle-${currentImageIndex}`}
                 className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary leading-tight text-balance drop-shadow-sm transition-all duration-1000 ease-out"
                 style={{
                   animation: 'fadeInUp 1s ease-out 0.2s forwards',
@@ -150,9 +144,10 @@ export default function Hero() {
               </h2>
             </div>
 
+            {/* Descripción */}
             <div className="mb-8">
               <p 
-                key={\`description-\${currentImageIndex}\`}
+                key={`description-${currentImageIndex}`}
                 className="text-lg md:text-xl text-foreground/80 leading-relaxed text-balance drop-shadow-sm transition-all duration-1000 ease-out"
                 style={{
                   animation: 'fadeInUp 1s ease-out 0.4s forwards',
@@ -176,7 +171,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <style jsx>{\`
+        {/* Estilos CSS para las animaciones */}
+        <style jsx>{`
           @keyframes fadeInUp {
             from {
               opacity: 0;
@@ -187,9 +183,10 @@ export default function Hero() {
               transform: translateY(0);
             }
           }
-        \`}</style>
+        `}</style>
       </section>
       
+      {/* Modal de cotización */}
       <QuoteModal isOpen={isQuoteModalOpen} onClose={() => setIsQuoteModalOpen(false)} />
     </>
   )

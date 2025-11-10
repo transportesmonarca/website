@@ -10,8 +10,16 @@ export default function ContactCTA() {
 
   return (
     <>
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-primary text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-primary text-white overflow-hidden">
+        {/* Imagen de fondo con efecto de marca de agua */}
+        <div 
+          className="absolute inset-0 opacity-10 bg-cover bg-center mix-blend-overlay"
+          style={{
+            backgroundImage: "url('/fondos/17D7E604-FEA7-41F4-9952-134A0485C6EA_1_105_c.jpeg')"
+          }}
+        />
+        
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">¿Listo para Transportar tu Carga?</h2>
           <p className="text-lg text-white/90 mb-12">
             Obtén una cotización personalizada para tus necesidades de transporte. Nuestro equipo está listo para

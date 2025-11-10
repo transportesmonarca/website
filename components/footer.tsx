@@ -1,6 +1,7 @@
 "use client"
 
 import { Mail, Phone, Facebook, Instagram, Linkedin, MapPin } from "lucide-react"
+import Image from "next/image"
 
 export default function Footer() {
   return (
@@ -9,11 +10,21 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex flex-col leading-none mb-4">
-              <span className="text-sm font-bold text-foreground">Transportes</span>
-              <span className="text-xl font-bold text-primary">MONARCA</span>
+            <div className="flex items-center gap-3 mb-4">
+              <Image 
+                src="/logo/logo_monarca.png" 
+                alt="Logo Monarca" 
+                width={50} 
+                height={50}
+                className="object-contain"
+              />
+              <div className="flex flex-col leading-none">
+                <span className="text-sm font-bold text-foreground">Transportes</span>
+                <span className="text-sm font-bold text-foreground">Internacionales</span>
+                <span className="text-xl font-bold text-primary">MONARCA</span>
+              </div>
             </div>
-            <p className="text-foreground/60 text-sm">Conectando México con Norteamérica desde hace más de 20 años.</p>
+            <p className="text-foreground/60 text-sm">Conectando México con Norteamérica desde 2018.</p>
             <div className="mt-4">
               <a 
                 href="https://monarcatransportes.netlify.app/login" 
@@ -44,7 +55,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-foreground mb-4">Destinos</h4>
             <ul className="space-y-2">
-              {["Estados Unidos", "Canadá", "Todo México", "Nuevo Laredo"].map((item) => (
+              {["Estados Unidos", "Todo México", "Nuevo Laredo"].map((item) => (
                 <li key={item}>
                   <a href="#" className="text-foreground/60 hover:text-primary transition text-sm">
                     {item}

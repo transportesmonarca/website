@@ -2,7 +2,7 @@ export default function Stats() {
   const stats = [
     { number: "Desde 2018", label: "Conectando Norteamérica" },
     { number: "5000+", label: "Embarques Anuales" },
-    { number: "USA, MX, CA", label: "Cobertura Completa" },
+    { number: "USA, MX", label: "Cobertura Completa" },
     { number: "24/7", label: "Servicio al Cliente" },
   ]
 

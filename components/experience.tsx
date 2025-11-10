@@ -12,15 +12,15 @@ export default function Experience() {
             </h2>
             <p className="text-foreground/60 text-lg mb-8">
               Transportes Internacionales Monarca nació con la misión de conectar los principales corredores comerciales
-              de Norteamérica. Desde Nuevo Laredo, México, operamos rutas que abarcan todo Estados Unidos, Canadá y la
+              de Norteamérica. Desde Nuevo Laredo, México, operamos rutas que abarcan todo Estados Unidos y la
               totalidad del territorio mexicano, con especialización en cruces fronterizos y logística integral.
             </p>
 
             <div className="space-y-4">
               {[
-                "Experiencia probada en 150+ cruces fronterizos USA-México",
-                "Cobertura completa: todos los estados de USA, México y Canadá",
-                "Flota moderna y operadores certificados desde 2018",
+                "Experiencia probada en cruces fronterizos",
+                "Cobertura completa: todos los estados de USA y México",
+                "Flota lista y preparada para cumplir con la demanda al momento",
                 "Seguimiento en tiempo real y documentación aduanal especializada",
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
@@ -32,15 +32,18 @@ export default function Experience() {
           </div>
 
           {/* Image */}
-          <div>
-            <img
-              src="/truck-drivers-team-warehouse-logistics.jpg"
-              alt="Equipo de transportes Monarca"
-              className="rounded-lg shadow-lg w-full h-auto"
-            />
-            <div className="mt-6 bg-primary text-white p-6 rounded-lg text-center">
-              <div className="text-5xl font-bold mb-2">Desde 2018</div>
-              <p className="text-white/90">Líderes en transporte internacional</p>
+          <div className="flex flex-col items-center">
+            <div className="w-4/5 h-[400px] rounded-lg shadow-lg overflow-hidden">
+              <img
+                src="/fondos/1A02174E-26BC-4430-B752-4E8F9329013B_1_105_c.jpeg"
+                alt="Equipo de transportes Monarca"
+                className="w-full h-full object-cover object-center scale-110"
+                style={{ objectPosition: 'center 30%' }}
+              />
+            </div>
+            <div className="mt-6 bg-primary text-white p-5 rounded-lg text-center w-4/5">
+              <div className="text-4xl font-bold mb-2">Desde 2018</div>
+              <p className="text-white/90 text-sm">Líderes en transporte internacional</p>
             </div>
           </div>
         </div>

@@ -2,9 +2,9 @@ import Header from "@/components/header"
 import Hero from "@/components/hero"
 import Stats from "@/components/stats"
 import Services from "@/components/services"
-import Routes from "@/components/routes"
 import Recruitment from "@/components/recruitment"
 import Experience from "@/components/experience"
+import Testimonials from "@/components/testimonials"
 import ContactCTA from "@/components/contact-cta"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
@@ -17,9 +17,9 @@ export default function Home() {
       <Hero />
       <Stats />
       <Services />
-      <Routes />
-      <Recruitment />
       <Experience />
+      <Recruitment />
+      <Testimonials />
       <ContactCTA />
       <Contact />
       <Footer />
