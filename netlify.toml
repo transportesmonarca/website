@@ -8,3 +8,15 @@
 [build.environment]
   NODE_VERSION = "22"
   NPM_FLAGS = "--legacy-peer-deps"
+  # Variables públicas
+  NEXT_PUBLIC_SUPABASE_URL = "https://qxzkmgmxaqwfxpwmazlt.supabase.co"
+  NEXT_PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF4emttZ214YXF3Znhwd21hemx0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3MjkxODksImV4cCI6MjA3ODMwNTE4OX0.9kJQVQ5BC-_BJFvML-DKQeMT2AROcgxiPi-ht_jJh6o"
+
+# IMPORTANTE: Las siguientes variables DEBEN configurarse en el dashboard de Netlify
+# NO las pongas aquí por seguridad:
+# - SUPABASE_SERVICE_ROLE_KEY
+# - SMTP_HOST
+# - SMTP_PORT  
+# - SMTP_USER
+# - SMTP_PASSWORD
+# - EMAIL_FROM
