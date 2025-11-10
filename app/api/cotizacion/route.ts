@@ -57,40 +57,150 @@ export async function POST(request: Request) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; }
-    .header { background-color: #ffffff; padding: 40px 20px; text-align: center; border-bottom: 1px solid #e5e7eb; }
-    .logo-container { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px; }
-    .logo-text { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    .logo-line1 { font-size: 18px; font-weight: 300; color: #1e3a8a; letter-spacing: 2px; }
-    .logo-line2 { font-size: 18px; font-weight: 300; color: #1e3a8a; letter-spacing: 2px; }
-    .logo-line3 { font-size: 22px; font-weight: 700; color: #dc2626; letter-spacing: 3px; }
-    .greeting { color: #1e3a8a; font-size: 28px; font-weight: 600; margin: 20px 0 10px; }
-    .content { padding: 40px 20px; }
-    .message { color: #374151; font-size: 16px; line-height: 1.6; margin-bottom: 30px; }
-    .info-box { background-color: #f3f4f6; border-radius: 8px; padding: 20px; margin: 20px 0; }
-    .info-title { color: #1e40af; font-weight: bold; margin-bottom: 10px; }
-    .info-item { color: #4b5563; margin: 8px 0; }
-    .footer { background-color: #dc2626; padding: 30px 20px; text-align: center; }
-    .footer-text { color: white; font-size: 14px; margin: 5px 0; }
-    .footer-links { margin-top: 15px; }
-    .footer-link { color: white; text-decoration: none; margin: 0 10px; font-size: 12px; }
+    body { 
+      margin: 0; 
+      padding: 0; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+    }
+    .container { 
+      max-width: 600px; 
+      margin: 20px auto; 
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .header { 
+      background-color: #ffffff; 
+      padding: 30px 20px 20px 20px; 
+      text-align: center;
+      border-bottom: 3px solid #dc2626;
+    }
+    .logo-container { 
+      display: flex;
+      align-items: center; 
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      margin-right: 15px;
+    }
+    .logo-text {
+      text-align: left;
+      line-height: 1.2;
+    }
+    .logo-line1 { 
+      font-size: 14px;
+      font-weight: 600;
+      color: #0a0a0a;
+      letter-spacing: 1px;
+    }
+    .logo-line2 { 
+      font-size: 20px;
+      font-weight: 700;
+      color: #dc2626;
+      letter-spacing: 2px;
+    }
+    .greeting { 
+      color: #0a0a0a;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 15px 0;
+    }
+    .content { 
+      padding: 40px 20px 20px 20px;
+    }
+    .message { 
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    .message.last {
+      margin-bottom: 0;
+    }
+    .info-box { 
+      background-color: #f3f4f6;
+      border-left: 4px solid #dc2626;
+      border-radius: 6px;
+      padding: 20px;
+      margin: 25px 0;
+    }
+    .info-title { 
+      color: #0a0a0a;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .info-item { 
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .info-item.full-width {
+      grid-column: 1 / -1;
+    }
+    .info-item strong {
+      color: #1f2937;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .footer { 
+      background-color: #dc2626;
+      padding: 25px 20px;
+      text-align: center;
+    }
+    .footer-text { 
+      color: white;
+      font-size: 14px;
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+    .footer-text strong {
+      font-weight: 600;
+    }
+    .footer-links { 
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255,255,255,0.3);
+    }
+    .footer-link { 
+      color: white;
+      text-decoration: none;
+      margin: 0 8px;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+    .footer-link:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    @media only screen and (max-width: 600px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      .logo-line1 { font-size: 12px; }
+      .logo-line2 { font-size: 18px; }
+      .greeting { font-size: 20px; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <div class="logo-container">
-        <svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="45" fill="#1e3a8a"/>
-          <path d="M30 35 L50 25 L70 35 L70 65 L50 75 L30 65 Z" fill="#dc2626"/>
-          <circle cx="50" cy="50" r="15" fill="white"/>
-          <text x="50" y="58" font-size="20" font-weight="bold" fill="#1e3a8a" text-anchor="middle">M</text>
-        </svg>
+        <img src="https://raw.githubusercontent.com/transportesmonarca/website/main/code/public/logo/logo_monarca.png" alt="Logo Monarca" class="logo-img">
         <div class="logo-text">
-          <div class="logo-line1">TRANSPORTES</div>
-          <div class="logo-line2">INTERNACIONALES</div>
-          <div class="logo-line3">MONARCA</div>
+          <div class="logo-line1">TRANSPORTES INTERNACIONALES</div>
+          <div class="logo-line2">MONARCA</div>
         </div>
       </div>
       <div class="greeting">Hola estimad@ ${data.nombre_cliente || "Cliente"}</div>
@@ -102,33 +212,41 @@ export async function POST(request: Request) {
       </div>
 
       <div class="info-box">
-        <div class="info-title">Resumen de su solicitud:</div>
-        <div class="info-item"><strong>Folio:</strong> #${cotizacion.id}</div>
-        ${data.empresa ? `<div class="info-item"><strong>Empresa:</strong> ${data.empresa}</div>` : ""}
-        <div class="info-item"><strong>Email:</strong> ${data.email}</div>
-        <div class="info-item"><strong>Teléfono:</strong> ${data.telefono}</div>
-        ${data.origen ? `<div class="info-item"><strong>Origen:</strong> ${data.origen}</div>` : ""}
-        ${data.destino ? `<div class="info-item"><strong>Destino:</strong> ${data.destino}</div>` : ""}
-        ${data.tipo_mercancia ? `<div class="info-item"><strong>Mercancía:</strong> ${data.tipo_mercancia}</div>` : ""}
-        ${data.peso_kg ? `<div class="info-item"><strong>Peso:</strong> ${data.peso_kg} kg</div>` : ""}
+        <div class="info-title">Resumen de su solicitud</div>
+        <div class="info-grid">
+          <div class="info-item full-width">
+            <strong>Folio</strong>
+            #${cotizacion.id}
+          </div>
+          ${data.empresa ? `<div class="info-item full-width"><strong>Empresa</strong>${data.empresa}</div>` : ""}
+          <div class="info-item">
+            <strong>Email</strong>
+            ${data.email}
+          </div>
+          <div class="info-item">
+            <strong>Teléfono</strong>
+            ${data.telefono}
+          </div>
+          ${data.origen ? `<div class="info-item"><strong>Origen</strong>${data.origen}</div>` : ""}
+          ${data.destino ? `<div class="info-item"><strong>Destino</strong>${data.destino}</div>` : ""}
+          ${data.tipo_mercancia ? `<div class="info-item"><strong>Mercancía</strong>${data.tipo_mercancia}</div>` : ""}
+          ${data.peso_kg ? `<div class="info-item"><strong>Peso</strong>${data.peso_kg} kg</div>` : ""}
+        </div>
       </div>
 
-      <div class="message">
+      <div class="message last">
         Gracias por confiar en nosotros. Salud y éxito.
       </div>
     </div>
 
     <div class="footer">
-      <div class="footer-text"><strong>Visita tmonarca.com.mx</strong></div>
+      <div class="footer-text"><strong>Visita nuestra página <a href="https://monarcanld.com" style="color: white; text-decoration: underline;">monarcanld.com</a></strong></div>
       <div class="footer-text">📧 exportaciones@tmonarca.com.mx</div>
       <div class="footer-text">📞 +52 867 225 4260</div>
-      <div class="footer-text">⏰ 8:00 – 16:00 (GMT-5) | Lunes – Sábado</div>
       <div class="footer-links">
-        <a href="#" class="footer-link">Políticas de seguridad</a>
-        <a href="#" class="footer-link">Aviso de privacidad</a>
-        <a href="#" class="footer-link">Derechos ARCO</a>
+        <a href="https://monarcanld.com/#privacy-modal" class="footer-link" target="_blank">Aviso de privacidad</a>
       </div>
-      <div class="footer-text" style="margin-top: 15px; font-size: 12px;">
+      <div class="footer-text" style="margin-top: 15px; font-size: 12px; opacity: 0.9;">
         Copyright © Transportes Internacionales Monarca, Todos los derechos reservados
       </div>
     </div>
