@@ -26,7 +26,7 @@ export default function Contact() {
             {
               icon: Mail,
               title: "Email",
-              details: ["exportaciones@tmonarca.com.mx", "ventas@monarcatransportes.com"],
+              details: ["exportaciones@tmonarca.com.mx"],
             },
           ].map((contact, index) => {
             const Icon = contact.icon
