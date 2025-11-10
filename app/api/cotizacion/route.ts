@@ -84,9 +84,9 @@ export async function POST(request: Request) {
       margin-bottom: 15px;
     }
     .logo-img {
-      width: 60px;
-      height: auto;
-      margin-right: 15px;
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
     }
     .logo-text {
       text-align: left;
