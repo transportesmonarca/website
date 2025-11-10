@@ -101,7 +101,10 @@ export default function WhatsAppFloat() {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-4 right-4 z-40 w-14 h-14 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+        className="fixed bottom-4 right-4 z-40 w-14 h-14 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 animate-bounce"
+        style={{
+          animation: isOpen ? 'none' : 'bounce 2s infinite'
+        }}
         aria-label="Abrir chat de WhatsApp"
       >
         {isOpen ? (
